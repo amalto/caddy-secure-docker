@@ -9,7 +9,8 @@ all:
 	env GOARCH=amd64 GOOS=$(GO_OS) xcaddy build $(CADDY_VERSION) --output ../caddy \
 		    --with github.com/amalto/caddy-jwt-valid \
 		    --with github.com/amalto/caddy-vars-regex \
-		    --with github.com/porech/caddy-maxmind-geolocation
+		    --with github.com/porech/caddy-maxmind-geolocation \
+		    --with github.com/caddy-dns/route53
 	@rm -rf ./bin/xcaddy
 
 docker:
