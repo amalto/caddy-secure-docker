@@ -20,7 +20,8 @@ docker:
 
 dep:
 	@echo "Making dependencies check ..."
-	@go get -u golang.org/x/lint/golint
 	@go get -u github.com/caddyserver/xcaddy/cmd/xcaddy
 	@go get -u github.com/amalto/caddy-vars-regex
 	@go get -u github.com/amalto/caddy-jwt-valid
+	@go get -u github.com/porech/caddy-maxmind-geolocation
+	@go get -u github.com/caddy-dns/route53
