@@ -12,7 +12,7 @@ The image builder can be run via the supplied Makefile and uses the `envfile` fo
 
 ### Note
 
-The custom entrypoint.sh used by these images allows the execution of shell scrips on startup if they are placed in the caddy /data/stripts.d folder
+The custom entrypoint.sh used by these images allows the execution of shell scripts on startup if they are placed in the caddy /data/stripts.d folder
 
 __________
 
