@@ -1,4 +1,21 @@
-# caddy-docker
-A Docker image for Caddy. This image includes vars_regex, jwt_valid, route53 DNS and maxmind geolocation plugins
+# caddy-secure-docker
+A Docker image builder for Caddy. This builder produces an image which includes the caddy server plus the modules: 
 
-The image also contains Fail2ban configured to run inside the same Alpine based container.
+- amalto/vars_regex
+- amalto/jwt_valid
+- caddy-dns/AWS Route53 DNS
+- Maxmind geolocation
+
+The secure-docker image also contains Fail2ban configured to run inside the same Alpine based container.
+
+The image builder can be run via the supplied Makefile and uses the `envfile` for build environment variables.
+
+### Note
+
+The custom entrypoint.sh used by these images allows the execution of shell scrips on startup if they are placed in the caddy /data/stripts.d folder
+
+__________
+
+The current version of Caddy Server specified in the envfile is **2.2.1** 
+
+__________

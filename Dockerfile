@@ -43,7 +43,7 @@ RUN apk --update --no-cache add \
   && apk del build-dependencies \
   && rm -rf /etc/fail2ban/jail.d /var/cache/apk/* /tmp/*
 
-COPY entrypoint.sh /entrypoint.sh
+COPY entrypoint1.sh /entrypoint.sh
 RUN chmod a+x /entrypoint.sh
 
 VOLUME [ "/f2bdata" ]

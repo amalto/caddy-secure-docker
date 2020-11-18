@@ -1,12 +1,13 @@
-CADDY_DOCKER_IMAGE_TAG:=dev
-GO_OS=linux
-CADDY_VERSION="v2.2.1"
+include envfile
+export $(shell sed 's/=.*//' envfile)
 
-all:
+CADDY_DOCKER_IMAGE_TAG=$(CADDY_VERSION)-$(SECURE_CADDY_VERSION)
+
+build:
 	@mkdir -p bin/
 	@rm -rf ./bin/
 	@mkdir -p ./bin/xcaddy && cd ./bin/xcaddy && \
-	env GOARCH=amd64 GOOS=$(GO_OS) xcaddy build $(CADDY_VERSION) --output ../caddy \
+	env GOARCH=amd64 GOOS=$(GO_OS) xcaddy build v$(CADDY_VERSION) --output ../caddy \
 		    --with github.com/amalto/caddy-jwt-valid \
 		    --with github.com/amalto/caddy-vars-regex \
 		    --with github.com/porech/caddy-maxmind-geolocation \
@@ -15,8 +16,13 @@ all:
 
 docker:
 	@docker image prune -f
-	@docker build --no-cache -t amalto/caddy:$(CADDY_DOCKER_IMAGE_TAG) -f ./Dockerfile .
-	@docker push amalto/caddy:$(CADDY_DOCKER_IMAGE_TAG)
+	@docker build --no-cache -t $(TARGET_REPO)/secure-caddy:$(CADDY_DOCKER_IMAGE_TAG) -f ./Dockerfile .
+	@docker push $(TARGET_REPO)/secure-caddy:$(CADDY_DOCKER_IMAGE_TAG)
+
+docker_caddy_only:
+	@docker image prune -f
+	@docker build --no-cache -t $(TARGET_REPO)/caddy:$(CADDY_DOCKER_IMAGE_TAG) -f ./Dockerfile_caddy_only .
+	@docker push $(TARGET_REPO)/caddy:$(CADDY_DOCKER_IMAGE_TAG)
 
 dep:
 	@echo "Making dependencies check ..."

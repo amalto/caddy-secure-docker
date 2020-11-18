@@ -1,0 +1,17 @@
+FROM caddy:2.2.1-alpine
+
+MAINTAINER SPT simon.temple@amalto.com
+
+# Patch in our new image
+COPY ./bin/caddy /usr/bin/
+
+RUN apk update
+RUN apk upgrade
+
+# Needed for certutils (required for self signed generation for localhost)
+RUN apk add nss-tools
+
+COPY entrypoint2.sh /entrypoint.sh
+RUN chmod a+x /entrypoint.sh
+
+ENTRYPOINT [ "/entrypoint.sh" ]
