@@ -8,10 +8,10 @@ build:
 	@rm -rf ./bin/
 	@mkdir -p ./bin/xcaddy && cd ./bin/xcaddy && \
 	env GOARCH=amd64 GOOS=$(GO_OS) xcaddy build v$(CADDY_VERSION) --output ../caddy \
-		    --with github.com/amalto/caddy-jwt-valid \
-		    --with github.com/amalto/caddy-vars-regex \
+		    --with github.com/amalto/caddy-jwt-valid@v1.0.0 \
+		    --with github.com/amalto/caddy-vars-regex@v1.0.0 \
 		    --with github.com/porech/caddy-maxmind-geolocation \
-		    --with github.com/caddy-dns/route53
+		    --with github.com/caddy-dns/route53@v1.0.2
 	@rm -rf ./bin/xcaddy
 
 docker:
