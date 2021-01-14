@@ -16,6 +16,6 @@ The custom entrypoint.sh used by these images allows the execution of shell scri
 
 __________
 
-The current version of Caddy Server specified in the envfile is **2.2.1** 
+The current version of Caddy Server specified in the envfile is **2.3.0** 
 
 __________

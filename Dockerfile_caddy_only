@@ -1,4 +1,4 @@
-FROM caddy:2.2.1-alpine
+FROM caddy:2.3.0-alpine
 
 MAINTAINER SPT simon.temple@amalto.com
 
