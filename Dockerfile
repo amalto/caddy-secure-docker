@@ -1,6 +1,6 @@
-FROM caddy:2.3.0-alpine
+FROM caddy:2.4.6-alpine
 
-MAINTAINER SPT simon.temple@amalto.com
+MAINTAINER SPT simon.temple@sidetrade.com
 
 # Patch in our new image
 COPY ./bin/caddy /usr/bin/
@@ -12,7 +12,7 @@ RUN apk upgrade
 RUN apk add nss-tools
 
 # Add fail2ban
-ENV FAIL2BAN_VERSION="0.11.1" \
+ENV FAIL2BAN_VERSION="0.11.2" \
     TZ="UTC"
 
 RUN apk --update --no-cache add \
