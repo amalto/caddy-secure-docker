@@ -11,7 +11,7 @@ build:
 		    --with github.com/amalto/caddy-jwt-valid@v1.0.4 \
 		    --with github.com/amalto/caddy-vars-regex@v1.0.1 \
 		    --with github.com/porech/caddy-maxmind-geolocation \
-		    --with github.com/caddy-dns/route53@v1.0.2
+		    --with github.com/caddy-dns/route53@v1.1.3
 	@rm -rf ./bin/xcaddy
 
 docker:
