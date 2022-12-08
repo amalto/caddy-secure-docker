@@ -1,4 +1,4 @@
-FROM caddy:2.4.6-alpine
+FROM caddy:2.6.2-alpine
 
 MAINTAINER SPT simon.temple@sidetrade.com
 
@@ -12,7 +12,7 @@ RUN apk upgrade
 RUN apk add nss-tools
 
 # Add fail2ban
-ENV FAIL2BAN_VERSION="0.11.2" \
+ENV FAIL2BAN_VERSION="1.0.2" \
     TZ="UTC"
 
 RUN apk --update --no-cache add \
