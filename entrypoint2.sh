@@ -8,4 +8,4 @@ for script in ${scripts}; do
   . "/data/script.d/${script}"
 done
 
-/usr/bin/caddy run -config /etc/caddy/Caddyfile
+/usr/bin/caddy run --config /etc/caddy/Caddyfile

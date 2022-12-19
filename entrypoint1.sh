@@ -56,4 +56,4 @@ for script in ${scripts}; do
 done
 
 /usr/bin/fail2ban-server -b -x -v start
-/usr/bin/caddy run -config /etc/caddy/Caddyfile
+/usr/bin/caddy run --config /etc/caddy/Caddyfile
